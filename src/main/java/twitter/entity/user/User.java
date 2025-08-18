@@ -1,5 +1,6 @@
 package twitter.entity.user;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import twitter.entity.post.Post;
 
