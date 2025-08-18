@@ -1,7 +1,7 @@
 /*
 package twitter.factory.impl;
 
-import twitter.controller.impl.InfoController;
+import twitter.controller.v1.impl.InfoController;
 import twitter.factory.command.CommandHandler;
 import twitter.security.SecurityComponent;
 

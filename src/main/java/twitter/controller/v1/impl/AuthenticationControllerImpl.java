@@ -1,8 +1,6 @@
-package twitter.controller.impl;
+package twitter.controller.v1.impl;
 
-import twitter.configuration.Component;
-import twitter.configuration.Injection;
-import twitter.controller.AuthenticationController;
+import twitter.controller.v1.AuthenticationController;
 import twitter.entity.user.User;
 import twitter.exception.ClientDisconnectedException;
 import twitter.exception.UserNotFoundException;
@@ -12,7 +10,6 @@ import twitter.service.UserService;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 /*@Component*/
 public class AuthenticationControllerImpl implements AuthenticationController {

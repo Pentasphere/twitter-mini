@@ -1,6 +1,4 @@
-package twitter.controller;
-
-import twitter.entity.user.User;
+package twitter.controller.v1;
 
 import java.io.IOException;
 

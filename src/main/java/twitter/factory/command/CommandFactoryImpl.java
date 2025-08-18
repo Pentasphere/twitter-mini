@@ -1,17 +1,14 @@
 package twitter.factory.command;
 
-import twitter.configuration.Component;
-import twitter.configuration.Injection;
+import twitter.controller.v1.AuthenticationController;
 
-import twitter.controller.AuthenticationController;
+import twitter.controller.v1.InfoController;
 
-import twitter.controller.InfoController;
-
-import twitter.controller.PostController;
+import twitter.controller.v1.PostController;
 
 /*import twitter.factory.impl.*;*/
 /*import twitter.listener.TwitterCommand;*/
-import twitter.controller.RegistrationController;
+import twitter.controller.v1.RegistrationController;
 import twitter.exception.UnknownCommandException;
 import twitter.factory.CommandFactory;
 import twitter.runner.TwitterCommandEnum;

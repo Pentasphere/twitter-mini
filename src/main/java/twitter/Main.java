@@ -76,10 +76,13 @@ public class Main {
         /*Environment environment = EnvironmentBuilder.buildEnvironment().build();*/
 
         /*ComponentFactory factory = new ComponentFactory(Main.class);*/
-        ComponentFactory factory = new ComponentFactory(Main.class, environment);
-        factory.configure();
+        /*ComponentFactory factory = new ComponentFactory(Main.class, environment);
+        factory.configure();*/
+        ComponentFactory.use(Main.class, environment);
+        ComponentFactory.configure();
 
-        Flyway flyway = factory.getComponent(Flyway.class);
+        /*Flyway flyway = factory.getComponent(Flyway.class);*/
+        Flyway flyway = ComponentFactory.getComponent(Flyway.class);
         flyway.migrate();
 
         /*Flyway flyway = Flyway
@@ -94,7 +97,8 @@ public class Main {
 
         /*CommandLineListener listener = factory.getComponent(CommandLineListener.class);
         listener.listen();*/
-        ApplicationRunner runner = factory.getComponent(ApplicationRunner.class);
+        /*ApplicationRunner runner = factory.getComponent(ApplicationRunner.class);*/
+        ApplicationRunner runner = ComponentFactory.getComponent(ApplicationRunner.class);
         runner.run();
 
         /*ComponentFactory factory = new ComponentFactory(Main.class.getPackageName());
