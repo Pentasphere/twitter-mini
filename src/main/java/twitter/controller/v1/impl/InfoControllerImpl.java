@@ -1,8 +1,6 @@
-package twitter.controller.impl;
+package twitter.controller.v1.impl;
 
-import twitter.configuration.Component;
-import twitter.configuration.Injection;
-import twitter.controller.InfoController;
+import twitter.controller.v1.InfoController;
 import twitter.entity.user.User;
 /*import twitter.listener.TwitterCommand;*/
 import twitter.exception.UserNotFoundException;
@@ -14,7 +12,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
 
 /*@Component*/
 public class InfoControllerImpl implements InfoController {

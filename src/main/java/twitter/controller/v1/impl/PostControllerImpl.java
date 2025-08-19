@@ -1,9 +1,7 @@
-package twitter.controller.impl;
+package twitter.controller.v1.impl;
 
-import twitter.configuration.Component;
-import twitter.configuration.Injection;
-import twitter.controller.PostController;
-import twitter.dto.PostResponseDto;
+import twitter.controller.v1.PostController;
+import twitter.dto.v1.PostResponseDto;
 import twitter.entity.post.Post;
 import twitter.entity.user.User;
 import twitter.exception.TwitterUploadException;
@@ -21,7 +19,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
 
 /*@Component*/
 public class PostControllerImpl implements PostController {

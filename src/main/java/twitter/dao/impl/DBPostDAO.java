@@ -2,20 +2,16 @@ package twitter.dao.impl;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import twitter.configuration.Component;
-import twitter.configuration.Environment;
 import twitter.configuration.Injection;
-import twitter.configuration.Value;
 import twitter.dao.PostDAO;
 import twitter.entity.post.Post;
-import twitter.entity.user.Organization;
-import twitter.entity.user.Person;
-import twitter.entity.user.UserType;
 import twitter.exception.TwitterCommandException;
-import twitter.exception.UserNotFoundException;
-import twitter.service.UserService;
 
-import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -180,10 +176,23 @@ public class DBPostDAO implements PostDAO {
         try (
                 EntityManager entityManager = entityManagerFactory.createEntityManager();
         ) {
-            return entityManager
+            CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+            CriteriaQuery<Post> criteriaQuery = builder.createQuery(Post.class);
+            Root<Post> root = criteriaQuery.from(Post.class);
+
+            Predicate predicate = builder.like(root.get("tagsAsString"), "%" + tag + "%");
+            Predicate predicate1 = builder.greaterThanOrEqualTo(root.get("creationDate"), LocalDateTime.now().minusDays(7));
+            Predicate finalPredicate = builder.and(predicate, predicate1);
+
+            criteriaQuery.select(root).where(finalPredicate);
+
+            return entityManager.createQuery(criteriaQuery).getResultList();
+
+
+            /*return entityManager
                     .createQuery("select p from Post p where p.tagsAsString like :tag", Post.class)
                     .setParameter("tag", "%" + tag + "%")
-                    .getResultList();
+                    .getResultList();*/
         } catch (Exception ex) {
             throw new TwitterCommandException(ex.getMessage());
         }
