@@ -4,6 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.flywaydb.core.Flyway;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import twitter.configuration.ComponentMethod;
 import twitter.configuration.ComponentSource;
 import twitter.configuration.Value;
@@ -57,5 +59,10 @@ public class CustomComponentSource {
         allowedEndpoints.addEndpoint("/api/register");
 
         return allowedEndpoints;
+    }
+
+    @ComponentMethod
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(4);
     }
 }
