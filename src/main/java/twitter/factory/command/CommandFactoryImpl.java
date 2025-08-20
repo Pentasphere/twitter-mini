@@ -11,7 +11,6 @@ import twitter.controller.v1.PostController;
 import twitter.controller.v1.RegistrationController;
 import twitter.exception.UnknownCommandException;
 import twitter.factory.CommandFactory;
-import twitter.runner.TwitterCommandEnum;
 
 import java.io.IOException;
 import java.util.HashMap;

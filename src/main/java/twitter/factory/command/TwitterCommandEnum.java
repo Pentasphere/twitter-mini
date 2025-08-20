@@ -1,4 +1,4 @@
-package twitter.runner;
+package twitter.factory.command;
 
 public enum TwitterCommandEnum {
     EXIT_COMMAND("exit", "Выход из системы"),
