@@ -4,7 +4,7 @@ import twitter.controller.v1.InfoController;
 import twitter.entity.user.User;
 /*import twitter.listener.TwitterCommand;*/
 import twitter.exception.UserNotFoundException;
-import twitter.runner.TwitterCommandEnum;
+import twitter.factory.command.TwitterCommandEnum;
 import twitter.security.SecurityComponent;
 import twitter.service.UserService;
 
